@@ -1,0 +1,205 @@
+{% load static %}
+
+<style>
+    .navbar-nav>li>a {
+        padding-top: 15px;
+        padding-bottom: 15px;
+    }
+    
+    .nav>li>a {
+        position: relative;
+        display: block;
+        padding: 10px 15px;
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+    
+    a {
+        color: #337ab7;
+        text-decoration: none;
+        background-color: transparent;
+    }
+    
+    .main-header .navbar .nav>li>a>.label {
+        position: absolute;
+        top: 9px;
+        right: 7px;
+        text-align: center;
+        font-size: 9px;
+        padding: 2px 3px;
+        line-height: .9;
+    }
+    
+    .fa {
+        display: inline-block;
+        font: normal normal normal 14px/1 FontAwesome;
+        font-size: 14px;
+        font-size: inherit;
+        text-rendering: auto;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+    }
+    
+    .label {
+        display: inline;
+        padding: .2em .6em .3em;
+        font-size: 75%;
+        font-weight: 700;
+        line-height: 1;
+        color: #fff;
+        text-align: center;
+        white-space: nowrap;
+        vertical-align: baseline;
+        border-radius: .25em;
+    }
+    
+    .navbar-nav>.user-menu>.dropdown-menu>.user-footer::before,
+    .navbar-nav>.user-menu>.dropdown-menu>.user-footer::after {
+        content: " ";
+        display: table;
+    }
+    
+    .navbar-nav>.user-menu>.dropdown-menu>.user-body {
+        padding: 15px;
+        border-bottom: 1px solid #f4f4f4;
+        border-top: 1px solid #dddddd;
+    }
+    
+    .dropdown-menu>.user-body {
+        border-bottom-right-radius: 4px;
+        border-bottom-left-radius: 4px;
+    }
+    
+    .dropdown-menu {
+        font-size: 14px;
+        text-align: right;
+        list-style: none;
+    }
+    
+    .navbar-nav>.user-menu>.dropdown-menu>.user-footer {
+        background-color: #f9f9f9;
+        padding: 10px;
+    }
+    
+    .dropdown-menu {
+        font-size: 14px;
+        text-align: right;
+        list-style: none;
+    }
+    
+    .pull-left {
+        float: left !important;
+    }
+    
+    .pull-right {
+        float: right !important;
+    }
+</style>
+<!-- Navbar -->
+<nav class="main-header navbar navbar-expand navbar-dark navbar-dark">
+
+    <!-- Left navbar links -->
+    <ul class="navbar-nav">
+        <li class="nav-item">
+            <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
+        </li>
+        <li class="nav-item d-none d-sm-inline-block">
+            <a href="{% url 'home' %}" class="nav-link">الرئيسية</a>
+        </li>
+        <li class="nav-item d-none d-sm-inline-block">
+            <a href="#" class="nav-link">الحسابات</a>
+        </li>
+        <li class="nav-item d-none d-sm-inline-block">
+            <a href="#" class="nav-link disabled ">المخزون</a>
+        </li>
+        <li class="nav-item d-none d-sm-inline-block">
+            <a href="#" class="nav-link disabled">الفواتير</a>
+        </li>
+        <li class="nav-item d-none d-sm-inline-block">
+            <a href="#" class="nav-link disabled">الموظفين</a>
+        </li>
+        <li class="nav-item d-none d-sm-inline-block">
+            <a href="#" class="nav-link">تقارير</a>
+        </li>
+        <li class="nav-item d-none d-sm-inline-block">
+            <a href="#" class="nav-link">الاعدادات</a>
+        </li>
+    </ul>
+
+
+    <!-- Right navbar links -->
+    <ul class="navbar-nav mr-auto-navbav">
+
+
+        <!-- Notifications Dropdown Menu -->
+        <li class="nav-item dropdown">
+            <a class="nav-link" data-toggle="dropdown" href="#">
+                <i class="far fa-bell"></i>
+                <span class="badge badge-warning navbar-badge">15</span>
+
+            </a>
+            <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right maf">
+                <span class="dropdown-item dropdown-header maf">التنبيهات</span>
+                <div class="dropdown-divider"></div>
+                <a href="#" class="dropdown-item maf">
+                    <i class="fas fa-envelope mr-2 maf"></i> 4 رسائل خاصة بفواتير المبيعات
+                    <span class="float-right text-muted text-sm">3 mins</span>
+                </a>
+                {% comment %}
+                <div class="dropdown-divider"></div>
+                <a href="#" class="dropdown-item">
+                    <i class="fas fa-users mr-2"></i> 8 friend requests
+                    <span class="float-right text-muted text-sm">12 hours</span>
+                </a>
+                <div class="dropdown-divider"></div>
+                <a href="#" class="dropdown-item">
+                    <i class="fas fa-file mr-2"></i> 3 new reports
+                    <span class="float-right text-muted text-sm">2 days</span>
+                </a> {% endcomment %}
+                <div class="dropdown-divider"></div>
+
+                <a href="#" class="dropdown-item dropdown-footer maf">التنبيهات</a>
+            </div>
+        </li>
+
+
+
+        <li class="nav-item dropdown">
+            <a class="nav-link" data-toggle="dropdown" href="#">
+                <i class="fas fa-user-cog"></i>
+            </a>
+            <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right maf">
+                <span class="dropdown-item dropdown-header maf">حسابي</span>
+                <div class="nav-item dropdown-header" style="background-color:darkslategray">
+{% if profile.image is None %}
+                    {% else %}
+                                        <img src="{{ profile.image.url }}" style="width:100px;height:100px;" class="img-circle" alt="Image">
+
+                    {% endif %}
+                    <p>
+                        {{ profile.user }}
+                        <small>{{ profile.email }}</small>
+                    </p>
+                </div>
+                <div class="dropdown-divider"></div>
+                <a href="#" class="dropdown-item maf">
+                    <i class="fas fa-envelope mr-2 maf"></i> تغير البريد الالكتروني {% comment %} <span class="float-right text-muted text-sm">3 mins</span> {% endcomment %}
+                </a>
+                <div class="dropdown-divider"></div>
+                <a href="#" class="dropdown-item maf">
+                    <i class="fas fa-users mr-2 maf"></i> تغير كلمة المرور {% comment %} <span class="float-right text-muted text-sm">12 hours</span> {% endcomment %}
+                </a>
+                <div class="dropdown-divider"></div>
+                <a href="#" class="dropdown-item maf">
+                    <i class="fas fa-file mr-2 maf"></i> تعديل الملف الشخصي {% comment %} <span class="float-right text-muted text-sm">2 days</span> {% endcomment %}
+                </a>
+                {% if user %}
+                <a href="{% url 'logout' %}" class="btn btn-default btn-flat maf">تسجيل الخروج</a> {% else %}
+                <a href="{% url 'login' %}" class="btn btn-default btn-flat maf">تسجيل الدخول</a> {% endif %}
+                <div class="dropdown-divider"></div>
+                <a href="#" class="dropdown-item dropdown-footer maf">اعدادات النظام</a>
+            </div>
+        </li>
+    </ul>
+</nav>
+<!-- /.navbar -->

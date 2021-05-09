@@ -1,0 +1,205 @@
+{% load static %}
+<!-- Main Sidebar Container -->
+<aside class="main-sidebar elevation-4 sidebar-dark-warning">
+    <!-- Brand Logo -->
+    <a href="#" class="brand-link">
+        <img src="{% static 'img/y_letter_en.jpg' %}" alt="YasserIMS Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
+        <span class="brand-text font-weight-light maf">ياسر لإدارة الفواتير</span>
+    </a>
+
+    <!-- Sidebar -->
+
+
+    <!-- SidebarSearch Form -->
+    {% comment %}
+    <div class="form-inline">
+        <div class="input-group" data-widget="sidebar-search">
+            <input class="form-control form-control-sidebar" type="search" placeholder="Search" aria-label="Search">
+            <div class="input-group-append">
+                <button class="btn btn-sidebar">
+              <i class="fas fa-search fa-fw"></i>
+            </button>
+            </div>
+        </div>
+    </div> {% endcomment %}
+
+    <!-- Sidebar Menu -->
+    <nav class="mt-2">
+        <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+            <!-- Add icons to the links using the .nav-icon class
+               with font-awesome or any other icon font library -->
+
+            <li class="nav-header">قوائم مختصرة</li>
+            <li class="nav-item">
+                <a href="#" class="nav-link">
+                    <i class="nav-icon fas fa-edit"></i>
+                    <p class="maf">
+                        الملفات
+                        <i class="right fas fa-angle-left"></i>
+                    </p>
+                </a>
+                <ul class="nav nav-treeview">
+                    <li class="nav-item maf">
+                        <a href="pages/charts/chartjs.html" class="nav-link">
+                            <i class="far fa-circle nav-icon"></i>
+                            <p>المخزون</p>
+                        </a>
+                    </li>
+                    <li class="nav-item maf">
+                        <a href="pages/charts/flot.html" class="nav-link">
+                            <i class="far fa-circle nav-icon"></i>
+                            <p>العملاء</p>
+                        </a>
+                    </li>
+                    <li class="nav-item maf">
+                        <a href="pages/charts/flot.html" class="nav-link">
+                            <i class="far fa-circle nav-icon"></i>
+                            <p>الموردين</p>
+                        </a>
+                    </li>
+                    <li class="nav-item maf">
+                        <a href="pages/charts/flot.html" class="nav-link">
+                            <i class="far fa-circle nav-icon"></i>
+                            <p>الضريبة</p>
+                        </a>
+                    </li>
+                </ul>
+            </li>
+            <li class="nav-item maf">
+                <a href="#" class="nav-link">
+                    <i class="nav-icon fas fa-tree"></i>
+                    <p>
+                        العمليات
+                        <i class="fas fa-angle-left right"></i>
+                    </p>
+                </a>
+                <ul class="nav nav-treeview">
+                    <li class="nav-item maf">
+                        <a href="pages/UI/general.html" class="nav-link">
+                            <i class="far fa-circle nav-icon"></i>
+                            <p>فاتورة بيع</p>
+                        </a>
+                    </li>
+                    <li class="nav-item maf">
+                        <a href="pages/UI/icons.html" class="nav-link">
+                            <i class="far fa-circle nav-icon"></i>
+                            <p>فاتورة شراء</p>
+                        </a>
+                    </li>
+                    <li class="nav-item maf">
+                        <a href="pages/UI/buttons.html" class="nav-link">
+                            <i class="far fa-circle nav-icon"></i>
+                            <p>مرتجع بيع</p>
+                        </a>
+                    </li>
+                    <li class="nav-item maf">
+                        <a href="pages/UI/sliders.html" class="nav-link">
+                            <i class="far fa-circle nav-icon"></i>
+                            <p>مرتجع شراء</p>
+                        </a>
+                    </li>
+                    <li class="nav-item maf">
+                        <a href="pages/UI/modals.html" class="nav-link">
+                            <i class="far fa-circle nav-icon"></i>
+                            <p>مصروفات</p>
+                        </a>
+                    </li>
+                    <li class="nav-item maf">
+                        <a href="pages/UI/navbar.html" class="nav-link">
+                            <i class="far fa-circle nav-icon"></i>
+                            <p>ايرادات نقدية</p>
+                        </a>
+                    </li>
+                    <li class="nav-item maf">
+                        <a href="pages/UI/timeline.html" class="nav-link">
+                            <i class="far fa-circle nav-icon"></i>
+                            <p>فاتورة توالف وهدايا</p>
+                        </a>
+                    </li>
+                </ul>
+            </li>
+            <li class="nav-item maf">
+                <a href="#" class="nav-link">
+                    <i class="nav-icon fas fa-chart-pie"></i>
+                    <p>
+                         تقارير
+                        <i class="fas fa-angle-left right"></i>
+                    </p>
+                </a>
+                <ul class="nav nav-treeview">
+                    <li class="nav-item maf">
+                        <a href="pages/forms/general.html" class="nav-link">
+                            <i class="far fa-circle nav-icon"></i>
+                            <p>كشف حساب</p>
+                        </a>
+                    </li>
+                    <li class="nav-item maf">
+                        <a href="pages/forms/advanced.html" class="nav-link">
+                            <i class="far fa-circle nav-icon"></i>
+                            <p>تقرير النقدية</p>
+                        </a>
+                    </li>
+                    <li class="nav-item maf">
+                        <a href="pages/forms/editors.html" class="nav-link">
+                            <i class="far fa-circle nav-icon"></i>
+                            <p>مديونية العملاء</p>
+                        </a>
+                    </li>
+                    <li class="nav-item maf">
+                        <a href="pages/forms/validation.html" class="nav-link">
+                            <i class="far fa-circle nav-icon"></i>
+                            <p>قائمة المبيعات</p>
+                        </a>
+                    </li>
+                    <li class="nav-item maf">
+                        <a href="pages/forms/validation.html" class="nav-link">
+                            <i class="far fa-circle nav-icon"></i>
+                            <p>قائمة المشتريات</p>
+                        </a>
+                    </li>
+                    <li class="nav-item maf">
+                        <a href="pages/forms/validation.html" class="nav-link">
+                            <i class="far fa-circle nav-icon"></i>
+                            <p>قائمة مردود المبيعات</p>
+                        </a>
+                    </li>
+                    <li class="nav-item maf">
+                        <a href="pages/forms/validation.html" class="nav-link">
+                            <i class="far fa-circle nav-icon"></i>
+                            <p>قائمة مردود المشتريات</p>
+                        </a>
+                    </li>
+                    <li class="nav-item maf">
+                        <a href="pages/forms/validation.html" class="nav-link">
+                            <i class="far fa-circle nav-icon"></i>
+                            <p>تقرير الربح والخسارة</p>
+                        </a>
+                    </li>
+                    <li class="nav-item maf">
+                        <a href="pages/forms/validation.html" class="nav-link">
+                            <i class="far fa-circle nav-icon"></i>
+                            <p>تقرير الاصناف</p>
+                        </a>
+                    </li>
+                    <li class="nav-item maf">
+                        <a href="pages/forms/validation.html" class="nav-link">
+                            <i class="far fa-circle nav-icon"></i>
+                            <p>قائمة التوالف والهدايا</p>
+                        </a>
+                    </li>
+                    <li class="nav-item maf">
+                        <a href="pages/forms/validation.html" class="nav-link">
+                            <i class="far fa-circle nav-icon"></i>
+                            <p>تقرير تفاصيل المنتجات</p>
+                        </a>
+                    </li>
+                </ul>
+            </li>
+
+
+        </ul>
+    </nav>
+    <!-- /.sidebar-menu -->
+    </div>
+    <!-- /.sidebar -->
+</aside>

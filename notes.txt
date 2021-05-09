@@ -1,0 +1,33 @@
+1- Designe UML Database for pos.
+    1- Account Type
+    2- Account Group
+    3- AccountMaster
+    4- eradat- masrofate transactions
+    5- sales and return invoices
+    6- purchase and return invoices
+    7- product category
+    8- products
+    9- vat
+    10- users and rights
+    11- customers
+    12- suppliers
+velvetjobs
+    
+2- Designe ORM django.
+3- start with view and create plane for data model.
+4- accounts setting and login.
+5- vue inside django template - js-jquary- html-css.
+6- system search and reporting.
+    1- cash drawer
+    2- vat report
+    3- account master report
+    4- eradat report
+    5- masrofate report
+    6- income report
+    7- outcome report
+    8- loose and profite report
+    9- product list report
+    10- sales list report
+    11- purchase list report
+    12- stock list reporting.
+    13- daily report (income - outcome - vat - credit-cash transactions)
