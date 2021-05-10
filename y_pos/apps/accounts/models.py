@@ -24,11 +24,9 @@ def user_directory(instance, filename):
 
 class Profile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
-    phone_number = models.CharField(max_length=15, null=True, blank=True)
-    address = models.CharField(max_length=450, blank=True, null=True)
-    image = models.ImageField(upload_to=user_directory, blank=True, null=True)
-    age = models.IntegerField(blank=True, null=True)
-    email = models.EmailField(max_length=254, blank=True, null=True)
+    image = models.ImageField(upload_to=user_directory, default=user_directory(filename="images/User_Avatar.png"))
+    age = models.IntegerField(default=20)
+    job = models.CharField(max_length=150, default="وظيفة")
 
     def __str__(self):
         return str(self.user)
