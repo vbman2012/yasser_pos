@@ -42,70 +42,22 @@ def create_user_profile(sender, instance, created, **kwargs):
         )
 
 
-class CountryMaster(models.Model):
-    name_ar = models.CharField(max_length=35, blank=True)
-    name_en = models.CharField(max_length=35, blank=True)
-    region = models.CharField(max_length=35, blank=True)
-    currency = models.CharField(max_length=5, blank=True)
-
-
-class MohafzaOfCity(models.Model):
-    country = models.ForeignKey(CountryMaster, on_delete=models.CASCADE, related_name='%(class)s_mohafzes_country')
-    name_ar = models.CharField(max_length=35, blank=True)
-    name_en = models.CharField(max_length=35, blank=True)
-
-
-class CityMaster(models.Model):
-    mohafza = models.ForeignKey(MohafzaOfCity, on_delete=models.CASCADE, related_name='%(class)s_cites_mohafza')
-    name_ar = models.CharField(max_length=35, blank=True)
-    name_en = models.CharField(max_length=35, blank=True)
-
-
 class PhoneBook(models.Model):
-    city = models.ForeignKey(CityMaster, on_delete=models.CASCADE, related_name='%(class)s_phons_city')
-    address = models.CharField(max_length=250, blank=True)
-    phone_no_1 = models.CharField(max_length=15, blank=True)
-    phone_no_2 = models.CharField(max_length=15, blank=True)
-    fax_no =   models.CharField(max_length=15, blank=True)
-    email = models.EmailField(max_length=50, blank=True)
-    mobile_no_1 = models.CharField(max_length=15, blank=True)
-    mobile_no_2 = models.CharField(max_length=15, blank=True)
-    work_phone_no = models.CharField(max_length=15, blank=True)
+    city = models.CharField(max_length=250, default="المنصورة")
+    address = models.CharField(max_length=250, default="عنوان")
+    phone_no_1 = models.CharField(max_length=15, default="رقم هاتف 1")
+    phone_no_2 = models.CharField(max_length=15, default="رقم هاتف 2")
+    email = models.EmailField(max_length=50, default="yasser@pos.com")
+    mobile_no_1 = models.CharField(max_length=15, default="موبايل 1")
+    mobile_no_2 = models.CharField(max_length=15, default="موبايل 2")
+    work_phone_no = models.CharField(max_length=15, default="هاتف عمل 2")
+    notes = models.CharField(max_length=550, default="ملاحظات")
 
 
 class BankMaster(models.Model):
-    name_ar = models.CharField(max_length=100)
-    name_en = models.CharField(max_length=100)
+    name = models.CharField(max_length=100)
+    address = models.CharField(max_length=100)
 
-
-class BankBranches(models.Model):
-    name_ar = models.CharField(max_length=100)
-    name_en = models.CharField(max_length=100)
-    bank_master = models.ForeignKey(BankMaster, on_delete=models.CASCADE, related_name='%(class)s_branches_bank')
-    city = models.ForeignKey(CityMaster, on_delete=models.CASCADE, related_name='%(class)s_banks_city')
-
-
-class IDCardMaster(models.Model):
-    IDTYPE_CHOICES =[
-        ('PI', 'PERSONAL CARD'),
-        ('VI', 'VISA'),
-        ('DR', 'DRIVER LICENSE'),
-        ('WO', 'WORK LICENSE'),
-        ('HI', 'Health Insurance'),
-        ('BI', 'BANK CARD'),
-    ]
-    id_no = models.BigIntegerField()
-    id_source = models.CharField(max_length=20)
-    id_end_date = models.DateTimeField()
-    responsible_no = models.BigIntegerField()
-    responsible_name = models.CharField(max_length=150)
-    id_type = models.CharField(max_length=2, choices=IDTYPE_CHOICES, default="PERSONAL CARD")
-    phone_book = models.ForeignKey(PhoneBook, on_delete=models.CASCADE, related_name='%(class)s_cards_phone')
-    image = models.ImageField(upload_to='images/', blank=True, null=True)
-
-class JobsMaster(models.Model):
-    job_title_ar = models.CharField(max_length=50)
-    job_title_en = models.CharField(max_length=50)
 
 
 class CompanyMaster(models.Model):
